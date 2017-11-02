@@ -1,7 +1,7 @@
 (ns cortex.core
   (:require
 ;;    [cortex.prepare :as prep]
-   [cortex.training :as train]
+;;    [cortex.training :as train]
 ;;    [cortex.test :as test]
 
             )
@@ -10,7 +10,7 @@
   [& args]
   (do
 ;;     (prep/build-image-data "cats-vs-dogs/train" "cats-vs-dogs/train1" "cats-vs-dogs/valid1" "cats-vs-dogs/test1" 52)
-    (train/final-train)
+;;     (train/final-train)
 ;;     (println (str "Test accuracy: " (test/accuracy)))
   ))
 
