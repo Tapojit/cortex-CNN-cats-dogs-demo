@@ -1,14 +1,7 @@
-# cortex
+# Cat-Dog Image Classification Task using Cortex Library
 
-A Clojure library designed to ... well, that part is up to you.
+Implementation of a Convolutional Neural Network for classifying cat & dog images.
 
-## Usage
+## Data
+This is the [link](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data) to the data. Requires Sign In/Sign Up.
 
-FIXME
-
-## License
-
-Copyright © 2017 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
