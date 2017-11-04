@@ -5,6 +5,8 @@
             [cortex.experiment.util :as experiment-util]
             [cortex.nn.layers :as layers]
             [think.image.patch :as patch]
+            [cortex.experiment.train :as train]
+            [cortex.nn.network :as network]
             [cortex.experiment.classification :as classification]))
 
 ;;Storing data directory
@@ -75,27 +77,17 @@
 ;;Note-In the last RELU layer, :lambda is the learning rate, which is set at 0.0001.
 
 
-;;Takes in class mapping defined earlier
-;;Maps images(observations) to different classes in web browser. Is used as a listener
-(defn- observation->image
-  [observation]
-  (patch/patch->image observation image-width))
+;;Converts the network into a computational graph
+(def net (network/linear-network (initial-description image-width image-width class-count)))
 
-
-;;Carries out training and opens port for observing training in web browser
+;;This function trains the network
 (defn final-train
-  []
-  (let [listener (classification/create-listener observation->image
-                                               class-mapping
-                                               {})]
-    (classification/perform-experiment
-     (initial-description image-width image-width class-count)
-     train-ds
-     valid-ds
-     listener)))
+  "Takes in size of individual batch of images the network is trained on per epoch and number of epochs the network
+  is trained over"
+  [batch-size epoch-no]
+  (train/train-n net  train-ds valid-ds :batch-size batch-size :epoch-count epoch-no))
 
-
-
+(final-train-2)
 
 
 
