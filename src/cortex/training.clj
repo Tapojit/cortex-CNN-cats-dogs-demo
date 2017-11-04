@@ -87,7 +87,6 @@
   [batch-size epoch-no]
   (train/train-n net  train-ds valid-ds :batch-size batch-size :epoch-count epoch-no))
 
-(final-train-2)
 
 
 
